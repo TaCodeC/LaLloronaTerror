@@ -1,0 +1,223 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6795577214243752458
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 5e4f818c8452743d499a7f1266c9f0e8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5e4f818c8452743d499a7f1266c9f0e8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5e4f818c8452743d499a7f1266c9f0e8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5e4f818c8452743d499a7f1266c9f0e8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5e4f818c8452743d499a7f1266c9f0e8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -205.23
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5e4f818c8452743d499a7f1266c9f0e8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5e4f818c8452743d499a7f1266c9f0e8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5e4f818c8452743d499a7f1266c9f0e8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5e4f818c8452743d499a7f1266c9f0e8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5e4f818c8452743d499a7f1266c9f0e8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5e4f818c8452743d499a7f1266c9f0e8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5e4f818c8452743d499a7f1266c9f0e8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5e4f818c8452743d499a7f1266c9f0e8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5e4f818c8452743d499a7f1266c9f0e8, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5e4f818c8452743d499a7f1266c9f0e8, type: 3}
+      propertyPath: m_Name
+      value: IdleAct
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5e4f818c8452743d499a7f1266c9f0e8, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5e4f818c8452743d499a7f1266c9f0e8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7371659488205699880}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5e4f818c8452743d499a7f1266c9f0e8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3125116317427744481}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5e4f818c8452743d499a7f1266c9f0e8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2587127230721759213}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5e4f818c8452743d499a7f1266c9f0e8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 705968755849450681}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5e4f818c8452743d499a7f1266c9f0e8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5441614045936177094}
+  m_SourcePrefab: {fileID: 100100000, guid: 5e4f818c8452743d499a7f1266c9f0e8, type: 3}
+--- !u!1 &5949207455877691227 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5e4f818c8452743d499a7f1266c9f0e8, type: 3}
+  m_PrefabInstance: {fileID: 6795577214243752458}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7371659488205699880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5949207455877691227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c847c07869af7446a870cea44cc79aca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nxtLevelPortal: {fileID: 0}
+  score: {fileID: 0}
+  seconds: {fileID: 0}
+  restartBtn: {fileID: 0}
+  NextLVL: Level3
+  pointsToWin: 40
+  timeValue: 120
+  SecondActive: 1
+--- !u!54 &3125116317427744481
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5949207455877691227}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!95 &2587127230721759213
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5949207455877691227}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 99c28fa47499846b29568ba94d4c3cf2, type: 3}
+  m_Controller: {fileID: 9100000, guid: 2869e31a81ee84142ab341bdf2d53896, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &705968755849450681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5949207455877691227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2640d57eb24204b3abc711a87e0706bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  groundCheckRadius: 0.2
+  cameraRig: {fileID: 0}
+  camSmoothTime: 0.15
+  camTurnSpeed: 540
+  respawnMinPosY: -210
+  validTags:
+  - Ground
+  groundCheckDistance: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  includeTriggers: 0
+  debugRay: 1
+  speedParam: Speed
+  sceneName: Level3
+  sfxSource: {fileID: 0}
+  loopSource: {fileID: 0}
+  eatClip: {fileID: 8300000, guid: e496a7d31e58c4ff79e59ea68271b06b, type: 3}
+  runLoopClip: {fileID: 8300000, guid: 43e7e92258f50419e857e8332fb5f792, type: 3}
+  foodTag: Food
+  deactivateFoodOnEat: 1
+--- !u!65 &5441614045936177094
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5949207455877691227}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.015, y: 0.05, z: 0.02}
+  m_Center: {x: 0, y: 0.025, z: 0}
