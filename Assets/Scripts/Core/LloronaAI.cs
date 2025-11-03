@@ -9,7 +9,6 @@ public class LloronaAI : MonoBehaviour
     public Vector3 target;
     private NavMeshAgent agent;
     private Plane[] planes;
-    public bool alwaysFollow = false;
     private GameData.LloronaState state;
     public Vector3 spawnPoint;
 
@@ -33,7 +32,7 @@ public class LloronaAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (alwaysFollow && (state ==  GameData.LloronaState.ALERT ||  state ==  GameData.LloronaState.RUNNING) && !IsTargetVisible())
+        if ((state ==  GameData.LloronaState.ALERT ||  state ==  GameData.LloronaState.RUNNING) && !IsTargetVisible())
         {
                 FollowTarget();
         }
@@ -43,11 +42,6 @@ public class LloronaAI : MonoBehaviour
             agent.isStopped = true;
             agent.ResetPath();
         }
-        if(Input.GetKeyDown(KeyCode.F))
-        {
-            alwaysFollow = !alwaysFollow;
-        }
-
     }
     public bool IsTargetVisible()
     {
@@ -82,7 +76,6 @@ public class LloronaAI : MonoBehaviour
     }
     public void OnNoiseHeard(Vector3 pos, float level)
     {
-        Debug.Log(state);
         if (state == GameData.LloronaState.STUN) return;
         if (level > 0.75f)
         {

@@ -16,8 +16,9 @@ public class PlayerActions : MonoBehaviour
     [Min(0)] public int maxCameraBatteries = 4;
 
     private Vector3 respawnPoint;
+    public int finalControlButtonsPressed;
 
-
+    public GameObject keyToActivate;
     //  struct holder 
     public struct Inventory
     {
@@ -26,7 +27,7 @@ public class PlayerActions : MonoBehaviour
         public bool hasFlashlight;
         public bool hasKey;
         public int cameraBatteryCount;
-        
+        public int CassetesGot;
         public void AddItem(GameData.ItemType itemType, int maxCamBats)
         {
             switch (itemType)
@@ -39,6 +40,11 @@ public class PlayerActions : MonoBehaviour
                     cameraBatteryCount = Mathf.Min(cameraBatteryCount + 1, maxCamBats);
                     break;
             }
+        }
+
+        public void addCassete()
+        {
+            CassetesGot++;
         }
 
 
@@ -63,6 +69,19 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
+    public bool pressControlBtn()
+    {
+        finalControlButtonsPressed+=1;
+        Debug.Log($"PressControlBtn {finalControlButtonsPressed}");
+        if (finalControlButtonsPressed > 6)
+        {
+            GameCore.Instance.setDemiObjective(GameData.demiObjective.USE);
+            return true;
+        }
+
+        return false;
+    }
+    
     public Inventory playerInventory;
     public void setRespawnPoint()
     {
@@ -71,7 +90,30 @@ public class PlayerActions : MonoBehaviour
 
     public void reSpawnPoint()
     {
-        transform.position = respawnPoint;
+        CharacterController cc = GetComponent<CharacterController>();
+        if (cc)
+        {
+            cc.enabled = false; 
+            transform.position = respawnPoint;
+            cc.enabled = true; 
+        }
+        else
+        {
+            transform.position = respawnPoint;
+        }
+    }
+
+
+    public bool addCassete()
+    {
+        playerInventory.addCassete();
+        if (playerInventory.CassetesGot > 3)
+        {
+            keyToActivate.SetActive(true);
+            return true;
+        }
+
+        return false;
     }
     private void Awake()
     {
@@ -84,7 +126,10 @@ public class PlayerActions : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         playerInventory = new Inventory();
+        if(keyToActivate != null)
+            keyToActivate.SetActive(false);
         UpdateUI();
+        setRespawnPoint();
     }
 /*
     void Update()
@@ -119,7 +164,17 @@ public class PlayerActions : MonoBehaviour
     // Api Func
     public void AddItem(GameData.ItemType itemType)
     {
+        //que desgracia de funcion, pero ya no tengo tiempo de hacerla mejor
         if (itemType == GameData.ItemType.Interaction) return;
+        if(itemType == GameData.ItemType.Flashlight) GameCore.Instance.setDemiObjective(GameData.demiObjective.USE);
+        if(itemType == GameData.ItemType.Battery) GameCore.Instance.setDemiObjective(GameData.demiObjective.USE);
+        if(itemType== GameData.ItemType.CameraBattery)AudioManager.Instance.insertBattery();
+        if (itemType == GameData.ItemType.Pliers)
+        {
+            GameCore.Instance.setDemiObjective(GameData.demiObjective.USE);
+            AudioManager.Instance.scream();
+            LightsManager.Instance.TurnOffEmergencyLights();
+        }
         playerInventory.AddItem(itemType, maxCameraBatteries);
         UpdateUI();
     }

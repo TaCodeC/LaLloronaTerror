@@ -2,23 +2,32 @@ using System;
 using UnityEngine;
 using System.Collections;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameCore : MonoBehaviour
 {
     public static GameCore Instance { get; private set; }
     public LloronaAI chillona;
     [Header("Mensajes UI")]
-    public GameObject keyMessage; 
+    public GameObject keyMessage;
+    public GameObject batteryMessage;
     public TMP_Text Instructions;
     public float messageDuration = 5f;
     [Header("UIPause")]
     public GameObject pauseMenu;
     [Header("ActualGameState")]
     [SerializeField] private GameData.GameState gameState;
-    [SerializeField] private GameData.Objective objective;
-    [SerializeField] private GameData.demiObjective demiObjective;
-    
+
+    [SerializeField] public GameData.Objective objective;
+    [SerializeField] public GameData.demiObjective demiObjective;
+
     private PlayerActions.Inventory playerInventoryToRespawn;
+
+    [Header("Ultima Mision")]
+    public TMP_Text countdownText;
+    public float countdownDuration = 10f;
+    private float countdownTimer;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -32,21 +41,22 @@ public class GameCore : MonoBehaviour
 
     public void orderSetSpawnPoint()
     {
-        playerInventoryToRespawn = PlayerActions.Instance.playerInventory;
         PlayerActions.Instance.setRespawnPoint();
     }
 
     public void orderRespawn()
     {
-        PlayerActions.Instance.playerInventory = playerInventoryToRespawn;
         PlayerActions.Instance.reSpawnPoint();
         PlayerActions.Instance.UpdateUI();
         chillona.reSpawnPoint();
         chillona.changeState(GameData.LloronaState.STAY);
-        demiObjective = GameData.demiObjective.SEARCH;
-        UpdateUIInstructions();
-        //TODO AGREGAR EL RESPAWN DE LOS ITEMS
     }
+
+    public void changetoMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -58,21 +68,26 @@ public class GameCore : MonoBehaviour
                 gameState = GameData.GameState.PAUSE;
             }
             else
-                {
+            {
                 Time.timeScale = 1;
                 gameState = GameData.GameState.PLAYING;
-                }
+            }
         }
+
     }
 
     void Start()
     {
         keyMessage.SetActive(false);
+        batteryMessage.SetActive(false);
         pauseMenu.SetActive(false);
         gameState = GameData.GameState.PLAYING;
-        objective = GameData.Objective.ENERGY;
+        objective = GameData.Objective.FLASHLIGHT;
         demiObjective = GameData.demiObjective.SEARCH;
+        UpdateUIInstructions();
+        countdownTimer = countdownDuration;
     }
+
     public bool confirmKey()
     {
         if (PlayerActions.Instance.HasItem(GameData.ItemType.Key))
@@ -81,17 +96,34 @@ public class GameCore : MonoBehaviour
             PlayerActions.Instance.UpdateUI();
             return true;
         }
-        ShowKeyMessage();
+        ShowMessage(keyMessage);
         return false;
     }
 
-    public void ShowKeyMessage()
+    public bool confirmBattery()
     {
-        if (keyMessage == null) return;
+        if (PlayerActions.Instance.HasItem(GameData.ItemType.Battery))
+        {
+            return true;
+        }
+        ShowMessage(batteryMessage);
+        return false;
+    }
 
-        if (keyMessage.activeSelf) return; 
+    public bool confirmGate()
+    {
+        if (objective == GameData.Objective.DOOR && PlayerActions.Instance.HasItem(GameData.ItemType.Pliers))
+        {
+            return true;
+        }
+        return false;
+    }
 
-        StartCoroutine(ShowKeyMessageRoutine());
+    public void ShowMessage(GameObject message)
+    {
+        if (message == null) return;
+        if (message.activeSelf) return;
+        StartCoroutine(ShowMessageRoutine(message));
     }
 
     public void setDemiObjective(GameData.demiObjective _demiObjective)
@@ -111,10 +143,20 @@ public class GameCore : MonoBehaviour
     {
         switch (objective)
         {
+            case GameData.Objective.FLASHLIGHT:
+                if (demiObjective == GameData.demiObjective.SEARCH)
+                {
+                    Instructions.text = "Busca la linterna y una bateria";
+                }
+                else
+                {
+                    Instructions.text = "Usa la linterna con F";
+                }
+                break;
             case GameData.Objective.ENERGY:
                 if (demiObjective == GameData.demiObjective.SEARCH)
                 {
-                    Instructions.text ="Busca la bateria de Emergencia";
+                    Instructions.text = "Busca la bateria de Emergencia";
                 }
                 else
                 {
@@ -138,7 +180,7 @@ public class GameCore : MonoBehaviour
                 }
                 else
                 {
-                    Instructions.text = "Ve a la sala de control";
+                    Instructions.text = "Toma las laves y ve a la sala de control";
                 }
                 break;
             case GameData.Objective.ESCAPE:
@@ -154,10 +196,10 @@ public class GameCore : MonoBehaviour
         }
     }
 
-    IEnumerator ShowKeyMessageRoutine()
+    IEnumerator ShowMessageRoutine(GameObject message)
     {
-        keyMessage.SetActive(true);
+        message.SetActive(true);
         yield return new WaitForSeconds(messageDuration);
-        keyMessage.SetActive(false);
+        message.SetActive(false);
     }
 }

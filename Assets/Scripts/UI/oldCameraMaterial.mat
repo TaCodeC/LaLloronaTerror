@@ -54,10 +54,10 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _SpeedScanLines: 0.0046813395
+    - _SpeedScanLines: -0.0011
     - _blurOffset: 0.00223
-    - _scanLinesFreq: 184.38754
+    - _scanLinesFreq: 200
     m_Colors:
-    - _Color: {r: 0.7090447, g: 1.249785, b: 0.6998796, a: 1.249785}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
